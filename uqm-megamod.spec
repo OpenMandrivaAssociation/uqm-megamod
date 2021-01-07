@@ -4,7 +4,7 @@
 
 Name:		uqm-megamod
 Version:	0.8.0.85
-Release:	1
+Release:	2
 Summary:	The Ur-Quan Masters, Modified version
 License:	GPLv2
 Group:		Games/Strategy
@@ -20,6 +20,7 @@ BuildRequires:	pkgconfig(sdl2)
 BuildRequires:	pkgconfig(vorbis)
 BuildRequires:	pkgconfig(libmikmod)
 BuildRequires:	pkgconfig(libpng16)
+BuildRequires:	pkgconfig(lua)
 
 %description
 The Ur-Quan Masters (uqm package in OpenMandriva) is a port of
@@ -37,6 +38,7 @@ CHOICE_debug_VALUE='nodebug'
 CHOICE_graphics_VALUE='sdl2'
 CHOICE_sound_VALUE='mixsdl'
 CHOICE_mikmod_VALUE='external'
+CHOICE_lua_VALUE='external'
 CHOICE_ovcodec_VALUE='standard'
 CHOICE_netplay_VALUE='full'
 CHOICE_joystick_VALUE='enabled'
@@ -49,8 +51,11 @@ INPUT_install_libdir_VALUE='%{_libdir}'
 INPUT_install_sharedir_VALUE='%{_gamesdatadir}'
 EOF
 
+echo |./build.sh uqm config
+
 %build
-./build.sh uqm < /dev/null
+sed -i -e 's,gcc,%{__cc},g;s,g++,%{__cxx},g' build.vars
+./build.sh %{?_smp_mflags} uqm
 
 %install
 rm -rf %{buildroot}
