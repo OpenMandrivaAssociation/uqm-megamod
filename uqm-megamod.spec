@@ -4,7 +4,7 @@
 
 Name:		uqm-megamod
 Version:	0.8.0.85
-Release:	2
+Release:	3
 Summary:	The Ur-Quan Masters, Modified version
 License:	GPLv2
 Group:		Games/Strategy
