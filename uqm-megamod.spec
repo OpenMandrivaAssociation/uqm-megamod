@@ -8,7 +8,7 @@ Release:	3
 Summary:	The Ur-Quan Masters, Modified version
 License:	GPLv2
 Group:		Games/Strategy
-URL:		http://megamod.serosis.net/
+URL:		https://megamod.serosis.net/
 Source0:	https://github.com/Serosis/UQM-MegaMod/archive/%{version}/%{name}-%{version}.tar.gz
 Source1:	uqm-16.png
 Source2:	uqm-32.png
